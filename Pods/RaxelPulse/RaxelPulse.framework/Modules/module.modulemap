@@ -1,0 +1,11 @@
+framework module RaxelPulse {
+  umbrella header "RaxelPulse.h"
+
+  export *
+  module * { export * }
+}
+
+module RaxelPulse.Swift {
+    header "RaxelPulse-Swift.h"
+    requires objc
+}
