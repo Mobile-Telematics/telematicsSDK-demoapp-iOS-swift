@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1100"
+   LastUpgradeVersion = "1250"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7324C62AEBD90B0B97482D60167C312"
-               BuildableName = "RaxelPulse"
-               BlueprintName = "RaxelPulse"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "A500AFBE23CEECCD00B019F8"
+               BuildableName = "DemoSwiftApp.app"
+               BlueprintName = "DemoSwiftApp"
+               ReferencedContainer = "container:DemoSwiftApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A500AFBE23CEECCD00B019F8"
+            BuildableName = "DemoSwiftApp.app"
+            BlueprintName = "DemoSwiftApp"
+            ReferencedContainer = "container:DemoSwiftApp.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,6 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A500AFBE23CEECCD00B019F8"
+            BuildableName = "DemoSwiftApp.app"
+            BlueprintName = "DemoSwiftApp"
+            ReferencedContainer = "container:DemoSwiftApp.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

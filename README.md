@@ -9,7 +9,7 @@ To run the demo app:
 
 Step 1: Clone this repository to local folder.
 Step 2: Run 'pod install' in Terminal from project's folder.
-Step 3: Open AppDelegate.m and insert your DeviceToken to this line:
+Step 3: Open AppDelegate.swift and insert your DeviceToken to this line:
 
         RPEntry.instance().virtualDeviceToken = "<VIRTUAL_DEVICE_TOKEN>"; //REQUIRED!
         
