@@ -10,7 +10,7 @@
 #import "RPJSONSerializable.h"
 #import "RPStartStop.h"
 
-typedef void(^RPAllowCallback)(BOOL success);
+typedef void(^RPAllowCallback)(BOOL success, NSString * _Nonnull theReason);
 
 NS_ASSUME_NONNULL_BEGIN
 @interface RPSchedule : NSObject<RPJSONSerializable> {
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (Boolean)checkShedule:(NSString*)type time:(NSInteger)timestamp;
 - (NSInteger)checkSchedule;
 - (void)recalculate:(id)json;
-- (void)checkStartShedule:(NSString*)type time:(NSInteger)timestamp callback:(nullable RPAllowCallback)callback;
+- (void)checkStartShedule:(NSString*)type time:(NSInteger)timestamp reason:(NSString*)theReason callback:(nullable RPAllowCallback)callback;
 - (void)armedOffline;
 
 @end

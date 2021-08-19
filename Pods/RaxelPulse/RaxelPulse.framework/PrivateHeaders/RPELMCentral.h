@@ -43,10 +43,13 @@ typedef void(^RPEndCallback)(BOOL success);
 
 #pragma mark Initial Methods
 
++ (id)sharedManager;
 + (RPELMCentral *)sharedRPELMCentral;
 + (RPELMCentral *)sharedRPELMCentralWithCallback:(nullable RPEndCallback)connectCallback showAlert:(Boolean)showAlert;
 - (instancetype)initWithQueue:(dispatch_queue_t)queue;
 - (instancetype)initWithQueue:(dispatch_queue_t)queue options:(NSDictionary *)options;
+
+- (void)centralManagerCheckState:(CBCentralManager *)central;
 
 
 #pragma mark Scan or StopScan methods

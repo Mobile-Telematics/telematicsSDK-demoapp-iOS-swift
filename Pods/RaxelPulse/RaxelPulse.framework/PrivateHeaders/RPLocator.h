@@ -80,6 +80,8 @@ FOUNDATION_EXPORT NSString *const RPLocatorDidEnterRegionNotification;
 @property (readonly, nonatomic) BOOL speedExceeding;
 @property (assign, nonatomic) BOOL firstLaunch;
 @property (assign, nonatomic) BOOL firstBlockLaunch;
+@property (assign, nonatomic) BOOL trackActivityTypeChanged;
+@property (assign, nonatomic) BOOL trackValidForActivity;
 @property (assign, nonatomic) NSTimeInterval firstBlockFail;
 @property (assign, nonatomic) double RPAccelerometerUpdateInterval;
 
@@ -97,6 +99,9 @@ FOUNDATION_EXPORT NSString *const RPLocatorDidEnterRegionNotification;
 @property (strong, nonatomic) NSTimer *elmCMDTimer;
 
 @property (assign, nonatomic) double aproximatedSpeed;
+
+@property (readonly, copy, nonatomic) RPWrappedLocation * _Nullable baseStopLocation;
+@property (strong, nonatomic) NSTimer *stoperTimer;
 
 #pragma mark - Root
 
@@ -142,6 +147,9 @@ FOUNDATION_EXPORT NSString *const RPLocatorDidEnterRegionNotification;
 - (void)setAggressiveHeartbeats:(BOOL)value;
 - (BOOL)aggressiveHeartbeat;
 - (void)checkELM;
+
+- (NSString*)lastActivityState;
+- (BOOL) isCanStopByActivity;
 
 @end
 

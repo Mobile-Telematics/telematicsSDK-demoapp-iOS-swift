@@ -71,6 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)clearELM;
 - (void)stopScan;
 - (void)clearELMStates;
+- (void)disconnect;
 
 @end
 

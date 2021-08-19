@@ -21,7 +21,8 @@ typedef NS_ENUM(NSUInteger, RPStartReason) {
     RPRestartByElmDeviceDisconnected,
     RPElmDeviceConnected,
     RPManualStart,
-    RPRestartByTimeChange
+    RPRestartByTimeChange,
+    RPStartedByAutomotiveActivity
 };
 
 typedef NS_ENUM(NSUInteger, RPStopReason) {
@@ -33,7 +34,8 @@ typedef NS_ENUM(NSUInteger, RPStopReason) {
     RPStopByAutomaticStop,
     RPStopByMemoryWarningReceived,
     RPStopByApplicationWillTerminate,
-    RPStopByTimeChange
+    RPStopByTimeChange,
+    RPStopedByAutomotiveActivity
 };
 
 + (instancetype)instance;
@@ -49,6 +51,7 @@ typedef NS_ENUM(NSUInteger, RPStopReason) {
 - (void)checkShedule:(NSInteger)timestamp;
 - (NSString*)startScheduleNameByType:(RPStartReason)reason;
 - (void)refreshSchedulerConfigIfNeed;
+- (NSString*)startNameByType:(RPStartReason)reason;
 
 @end
 

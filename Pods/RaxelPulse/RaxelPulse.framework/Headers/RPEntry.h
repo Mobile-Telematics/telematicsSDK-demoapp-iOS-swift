@@ -125,6 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
 //+ (NSMutableArray<NSURL*>*)getTracksList;
 //- (void)calculateX:(double)x y:(double)y z:(double)z speed:(double)speed accuracy:(double)accuracy latitude:(double)originLatitude longitude:(double)originLongitude time:(double)timestamp location:(CLLocation*)location course:(double)course;
 //- (void)setAccelerometerUpdateInterval:(NSInteger)interval;
+- (NSString*)getReason;
 - (void)currentSpeed:(void (^)(NSNumber *))speedCallback;
 + (BOOL)isAllRequiredPermissionsGranted;
 + (void)enableHF:(BOOL)enable;

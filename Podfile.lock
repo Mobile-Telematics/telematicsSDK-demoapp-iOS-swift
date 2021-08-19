@@ -1,16 +1,16 @@
 PODS:
-  - RaxelPulse (5.9.17)
+  - RaxelPulse (5.10)
 
 DEPENDENCIES:
-  - RaxelPulse (= 5.9.17)
+  - RaxelPulse (= 5.10)
 
 SPEC REPOS:
   trunk:
     - RaxelPulse
 
 SPEC CHECKSUMS:
-  RaxelPulse: 685d171a6cbb417d16bb7fbc2a9759cc09189908
+  RaxelPulse: 7fbbed8ec0d4f01d5e0c22526572ef150ef9782f
 
-PODFILE CHECKSUM: 108acabd5841eec9ead6afbfa6a1fe784afbe3bf
+PODFILE CHECKSUM: 5f0fcd854c7b99917a70e574742d67905566b0ce
 
 COCOAPODS: 1.10.1
