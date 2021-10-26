@@ -29,6 +29,11 @@ FOUNDATION_EXPORT NSTimeInterval const RPServerHeartbeatTimeInterval;
                        parameters:(NSDictionary *)params
                           headers:(NSDictionary *)headers
                            method:(NSString *)method;
++ (NSURLRequest *)requestHeartWithPath:(NSString *)path
+                          baseURL:(NSString *)baseURL
+                       parameters:(NSDictionary *)params
+                          headers:(NSDictionary *)headers
+                           method:(NSString *)method;
 + (NSURLRequest *)requestUserTelematicssdkWithPath:(NSString *)path parameters:(NSDictionary *)params headers:(NSDictionary *)headers method:(NSString *)method;
 
 @end

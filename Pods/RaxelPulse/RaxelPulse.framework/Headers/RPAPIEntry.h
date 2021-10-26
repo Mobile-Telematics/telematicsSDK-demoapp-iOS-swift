@@ -235,5 +235,7 @@ typedef NS_ENUM(NSUInteger, RPStatisticsType) {
 - (void)sendHeartbeatEnabledSDKbyusers;
 - (void)sendHeartbeatDisabledSDKwithuploadbyusers;
 - (void)sendHeartbeat;
+- (void)sendHeartbeatPeripheralBluetoothOff;
+- (void)sendHeartbeatPeripheralBluetoothOn;
 
 @end

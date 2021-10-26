@@ -106,7 +106,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RPSpeedLimitDelegate, RPT
         ]
 
         RPSettings.returnInstance().wizardPages = pages
-        RPSettings.returnInstance().wizardAlertActiveButtonBgColor = UIColor(red: 0.79, green: 0.22, blue: 0.17, alpha: 1.0)
+        
+        //Customization
+        RPSettings.returnInstance().wizardNextButtonBgColor = UIColor.red
+        RPSettings.returnInstance().wizardMaintextColor = UIColor.black
+        RPSettings.returnInstance().wizardAlertBackgroundColor = UIColor.white
+        RPSettings.returnInstance().wizardAlertTextColor = UIColor.green
+        RPSettings.returnInstance().wizardAlertButtonTextColor = UIColor.blue
+        RPSettings.returnInstance().wizardAlertActiveButtonTextColor = UIColor.red
+        RPSettings.returnInstance().wizardAlertActiveButtonBgColor = UIColor.gray
+        RPSettings.returnInstance().appName = "TelematicsApp"
+        
+        //Dark Scheme
+        //RPSettings.returnInstance().wizardAlertBackgroundColor = UIColor.white
+        //RPSettings.returnInstance().wizardAlertTextColor = UIColor.white
+        //RPSettings.returnInstance().wizardAlertButtonTextColor = UIColor.white
+        //RPSettings.returnInstance().wizardAlertActiveButtonTextColor = UIColor.white
+        //RPSettings.returnInstance().wizardAlertActiveButtonBgColor = UIColor.white
+        
         RPPermissionsWizard.returnInstance().launch(finish: { _ in
             RPEntry.initialize(withRequestingPermissions: true)
             

@@ -161,6 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setEnableSdk:(BOOL)value;
 - (void)setDisableWithUpload;
 + (BOOL)isSDKEnabled;
++ (void)enableAccidents:(BOOL)enable;
 
 @end
 

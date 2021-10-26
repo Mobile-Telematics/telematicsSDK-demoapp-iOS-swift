@@ -22,7 +22,9 @@ typedef void(^RPInnerLogCallback)(NSMutableArray<NSString*>* list);
 @property (readonly, nonatomic) NSInteger trackFilesCount;
 @property (assign, nonatomic) RPUploadCallback uploadCallback;
 @property (assign, nonatomic) BOOL restoreBlock;
+@property (assign, nonatomic) BOOL bufferBlock;
 @property (strong, nonatomic) NSTimer *requestingTimer;
+@property (readonly, nonatomic) NSInteger loopCount;
 
 
 #pragma mark - Root

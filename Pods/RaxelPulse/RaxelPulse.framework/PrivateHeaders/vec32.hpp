@@ -112,6 +112,7 @@ public:
   /// »ÁÏÂÌˇÂÚ ‰ÎËÌÛ ‚ÂÍÚÓ‡ ‰Ó @p basis.
   Vec32 NormalizeTo(sample_t basis) const {
     sample_t length = Length();
+    if(length==0) return Vec32();
     return Vec32(X()*basis/length,
                  Y()*basis/length,
                  Z()*basis/length);
@@ -120,6 +121,7 @@ public:
   Vec32 Normalize() const {
     // ÒÎÂ‰ÛÂÚ ËÒÔÓÎ¸ÁÓ‚‡Ú¸ ÚÓÎ¸ÍÓ, ÂÒÎË ÚËÔ ‰‡ÌÌ˚ı - float
     sample_t len = Length();
+    if(len==0) return Vec32();
     return Vec32(X()/len,
                  Y()/len,
                  Z()/len);
@@ -127,6 +129,10 @@ public:
 
   Vec32 Negate() const {
     return Vec32(-X(), -Y(), -Z());
+  }
+  
+  friend Vec32 operator *(Vec32 const &V, sample_t k){
+    return Vec32(V.X()*k,V.Y()*k,V.Z()*k);
   }
 
 private:

@@ -84,7 +84,7 @@ typedef void(^RPDataTaskCompletionBlock)(RPDataTask *);
 
 #pragma mark - Ping
 
-typedef void(^RPDataTaskCallback)(RPDataTask * _Nonnull task);
+typedef void(^RPDataTaskCallback)(Boolean success);
 
 + (void)heartbeat: (NSString *)reason callback:(nullable RPDataTaskCallback)callback;
 + (void)heartbeat: (NSString *)reason rtlData:(nullable NSMutableDictionary*)rtlData callback:(nullable RPDataTaskCallback)callback;
@@ -154,5 +154,8 @@ typedef void(^RPDataTaskCallback)(RPDataTask * _Nonnull task);
 + (RPDataTask *)removeAllFutureTag;
 + (RPDataTask *)addFutureiTag:(RPInnerTag *)itag;
 + (RPDataTask *)removeFutureiTag:(RPInnerTag *)itag;
+
+
++ (RPDataTask *)sendEvent:(NSDictionary *)params;
 
 @end

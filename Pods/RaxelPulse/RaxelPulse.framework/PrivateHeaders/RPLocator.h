@@ -151,6 +151,9 @@ FOUNDATION_EXPORT NSString *const RPLocatorDidEnterRegionNotification;
 - (NSString*)lastActivityState;
 - (BOOL) isCanStopByActivity;
 
++ (void)enableAccidents:(BOOL)enable;
++ (BOOL)isEnabledAccidents;
+
 @end
 
 NS_ASSUME_NONNULL_END

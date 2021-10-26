@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSNumber* timeStart;
 @property (copy, nonatomic) NSNumber* duration;
 @property (copy, nonatomic) NSNumber* pureDuration;
+@property (copy, nonatomic) NSNumber* reliability;
 @property (copy, nonatomic) NSNumber* speedStart;
 @property (copy, nonatomic) NSNumber* speedStop;
 @property (copy, nonatomic) NSNumber* speedMedian;
@@ -40,6 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) RPRangeVertical *rangeVertical;
 @property (copy, nonatomic) RPAccuracy *accuracy;
 @property (copy, nonatomic) RPSpeed *speed;
+@property (copy, nonatomic) NSString* accidentTrigger;
+@property (copy, nonatomic) NSString* theId;
 
 @end
 

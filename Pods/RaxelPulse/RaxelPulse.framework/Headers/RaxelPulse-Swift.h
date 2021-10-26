@@ -228,18 +228,18 @@ SWIFT_CLASS_NAMED("BRPAddressParts")
 @class NSSet;
 
 @interface BRPAddressParts (SWIFT_EXTENSION(RaxelPulse))
-- (void)addStrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
-- (void)removeStrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
-- (void)addStrackProcessed:(NSSet * _Nonnull)values;
-- (void)removeStrackProcessed:(NSSet * _Nonnull)values;
-@end
-
-
-@interface BRPAddressParts (SWIFT_EXTENSION(RaxelPulse))
 - (void)addEtrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
 - (void)removeEtrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
 - (void)addEtrackProcessed:(NSSet * _Nonnull)values;
 - (void)removeEtrackProcessed:(NSSet * _Nonnull)values;
+@end
+
+
+@interface BRPAddressParts (SWIFT_EXTENSION(RaxelPulse))
+- (void)addStrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
+- (void)removeStrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
+- (void)addStrackProcessed:(NSSet * _Nonnull)values;
+- (void)removeStrackProcessed:(NSSet * _Nonnull)values;
 @end
 
 @class NSString;
@@ -316,6 +316,7 @@ SWIFT_CLASS_NAMED("BRPEvent")
 @property (nonatomic) double accelerationLateralEnd;
 @property (nonatomic) double accelerationVertical;
 @property (nonatomic) double accelerationVerticalEnd;
+@property (nonatomic, copy) NSString * _Nullable accidentTrigger;
 @property (nonatomic) double duration;
 @property (nonatomic) double latitude;
 @property (nonatomic) double latitudeE;
@@ -323,11 +324,13 @@ SWIFT_CLASS_NAMED("BRPEvent")
 @property (nonatomic) double longitudeE;
 @property (nonatomic) double prevEventSpeed;
 @property (nonatomic) double pureDuration;
+@property (nonatomic) double reliability;
 @property (nonatomic) double speedMedian;
 @property (nonatomic) double speedStart;
 @property (nonatomic) double speedStop;
 @property (nonatomic) double timeStart;
 @property (nonatomic, copy) NSString * _Nullable type;
+@property (nonatomic, copy) NSString * _Nullable theId;
 @property (nonatomic, strong) BRPEPValue * _Nullable accuracy;
 @property (nonatomic, strong) BRPEPValue * _Nullable rangeDirect;
 @property (nonatomic, strong) BRPEPValue * _Nullable rangeLateral;
@@ -352,6 +355,7 @@ SWIFT_CLASS_NAMED("BRPEventT")
 @property (nonatomic) double accelerationLateralEnd;
 @property (nonatomic) double accelerationVertical;
 @property (nonatomic) double accelerationVerticalEnd;
+@property (nonatomic, copy) NSString * _Nullable accidentTrigger;
 @property (nonatomic) double duration;
 @property (nonatomic) double latitude;
 @property (nonatomic) double latitudeE;
@@ -359,11 +363,13 @@ SWIFT_CLASS_NAMED("BRPEventT")
 @property (nonatomic) double longitudeE;
 @property (nonatomic) double prevEventSpeed;
 @property (nonatomic) double pureDuration;
+@property (nonatomic) double reliability;
 @property (nonatomic) double speedMedian;
 @property (nonatomic) double speedStart;
 @property (nonatomic) double speedStop;
 @property (nonatomic) double timeStart;
 @property (nonatomic, copy) NSString * _Nullable type;
+@property (nonatomic, copy) NSString * _Nullable theId;
 @property (nonatomic, strong) BRPEPValue * _Nullable accuracy;
 @property (nonatomic, strong) BRPEPValue * _Nullable rangeDirect;
 @property (nonatomic, strong) BRPEPValue * _Nullable rangeLateral;
@@ -607,6 +613,61 @@ SWIFT_CLASS_NAMED("BRPshedulerItem")
 @end
 
 
+SWIFT_CLASS_NAMED("BrawBufferPoint")
+@interface BrawBufferPoint : NSManagedObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+- (nonnull instancetype)initWithContext:(NSManagedObjectContext * _Nonnull)context SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface BrawBufferPoint (SWIFT_EXTENSION(RaxelPulse))
+@property (nonatomic) double accX;
+@property (nonatomic) double accY;
+@property (nonatomic) double accZ;
+@property (nonatomic) BOOL before;
+@property (nonatomic) double gpsspeed;
+@property (nonatomic) double gyroX;
+@property (nonatomic) double gyroY;
+@property (nonatomic) double gyroZ;
+@property (nonatomic) double time;
+@property (nonatomic, copy) NSString * _Nullable uuid;
+@property (nonatomic) int64_t index;
+@end
+
+
+SWIFT_CLASS_NAMED("BufferUUID")
+@interface BufferUUID : NSManagedObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+- (nonnull instancetype)initWithContext:(NSManagedObjectContext * _Nonnull)context SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface BufferUUID (SWIFT_EXTENSION(RaxelPulse))
+@property (nonatomic, copy) NSString * _Nullable uuid;
+@property (nonatomic) int64_t time;
+@end
+
+
+SWIFT_CLASS_NAMED("Heartbeat")
+@interface Heartbeat : NSManagedObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+- (nonnull instancetype)initWithContext:(NSManagedObjectContext * _Nonnull)context SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSData;
+
+@interface Heartbeat (SWIFT_EXTENSION(RaxelPulse))
+@property (nonatomic, copy) NSData * _Nullable body;
+@property (nonatomic) int64_t timestamp;
+@end
+
+
 
 
 SWIFT_CLASS_NAMED("NetworkMonitor") SWIFT_AVAILABILITY(ios,introduced=12.0)
@@ -740,6 +801,7 @@ SWIFT_CLASS_NAMED("RPLastKnownPoints")
 @class RPRealTimeConfig;
 @class RPRTLPoint;
 @class RPTrackProcessed;
+@class NSMutableDictionary;
 
 SWIFT_CLASS_NAMED("RPLastKnownPointsHelper")
 @interface RPLastKnownPointsHelper : NSObject
@@ -748,7 +810,7 @@ SWIFT_CLASS_NAMED("RPLastKnownPointsHelper")
 - (void)getLKPToTrackWithStartDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(NSArray<RPLKPoint *> * _Nonnull))callResult;
 - (void)clearLKPToTrackWithStartDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(void))callResult;
 - (void)addPointsWithValue:(NSArray<NSDictionary<NSString *, id> *> * _Nonnull)value startDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(void))callResult;
-- (void)removePointsWithStartDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(void))callResult;
+- (void)removePointsWithStartDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(NSInteger))callResult;
 - (void)getPointsWithStartDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nonnull))callResult;
 - (void)addRPELMDevicesWithValue:(NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull)value;
 - (void)getRPELMDevicesWithCallResult:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull))callResult;
@@ -777,6 +839,13 @@ SWIFT_CLASS_NAMED("RPLastKnownPointsHelper")
 - (NSArray<RPLKPoint *> * _Nonnull)getLKPoints SWIFT_WARN_UNUSED_RESULT;
 - (void)addToBRPOTagWithName:(NSString * _Nullable)name source:(NSString * _Nullable)source isRemove:(BOOL)isRemove isGet:(BOOL)isGet callback:(RPAPIITagCallback _Nonnull)callback;
 - (void)setup;
+- (void)addBufferWithValue:(NSDictionary<NSString *, id> * _Nonnull)value;
+- (void)getUUIDBuffersWithCallResult:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull))callResult;
+- (void)getBuffersWithUuid:(NSString * _Nonnull)uuid timeStart:(int64_t)timeStart callResult:(void (^ _Nonnull)(NSString * _Nonnull, NSString * _Nonnull, NSString * _Nonnull))callResult;
+- (void)cleanBuffersWithUuid:(NSString * _Nonnull)uuid;
+- (void)addHeartbeatWithValue:(NSData * _Nonnull)value callback:(void (^ _Nonnull)(BOOL))callback;
+- (void)getHeartbeatsWithCallResult:(void (^ _Nonnull)(NSArray<NSMutableDictionary *> * _Nonnull))callResult;
+- (void)removeHeartbeatWithTimestamp:(NSNumber * _Nonnull)timestamp;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -852,7 +921,6 @@ SWIFT_CLASS_NAMED("RPRealTimeConfig")
 @end
 
 @class UIColor;
-@class NSMutableDictionary;
 
 SWIFT_CLASS_NAMED("RPSettings")
 @interface RPSettings : NSObject
@@ -960,7 +1028,6 @@ SWIFT_CLASS("_TtC10RaxelPulse9WebSocket")
 - (nonnull instancetype)init;
 @end
 
-@class NSData;
 
 @interface WebSocket (SWIFT_EXTENSION(RaxelPulse))
 /// Transmits message to the server over the WebSocket connection.
@@ -1240,18 +1307,18 @@ SWIFT_CLASS_NAMED("BRPAddressParts")
 @class NSSet;
 
 @interface BRPAddressParts (SWIFT_EXTENSION(RaxelPulse))
-- (void)addStrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
-- (void)removeStrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
-- (void)addStrackProcessed:(NSSet * _Nonnull)values;
-- (void)removeStrackProcessed:(NSSet * _Nonnull)values;
-@end
-
-
-@interface BRPAddressParts (SWIFT_EXTENSION(RaxelPulse))
 - (void)addEtrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
 - (void)removeEtrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
 - (void)addEtrackProcessed:(NSSet * _Nonnull)values;
 - (void)removeEtrackProcessed:(NSSet * _Nonnull)values;
+@end
+
+
+@interface BRPAddressParts (SWIFT_EXTENSION(RaxelPulse))
+- (void)addStrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
+- (void)removeStrackProcessedObject:(BRPTrackProcessed * _Nonnull)value;
+- (void)addStrackProcessed:(NSSet * _Nonnull)values;
+- (void)removeStrackProcessed:(NSSet * _Nonnull)values;
 @end
 
 @class NSString;
@@ -1328,6 +1395,7 @@ SWIFT_CLASS_NAMED("BRPEvent")
 @property (nonatomic) double accelerationLateralEnd;
 @property (nonatomic) double accelerationVertical;
 @property (nonatomic) double accelerationVerticalEnd;
+@property (nonatomic, copy) NSString * _Nullable accidentTrigger;
 @property (nonatomic) double duration;
 @property (nonatomic) double latitude;
 @property (nonatomic) double latitudeE;
@@ -1335,11 +1403,13 @@ SWIFT_CLASS_NAMED("BRPEvent")
 @property (nonatomic) double longitudeE;
 @property (nonatomic) double prevEventSpeed;
 @property (nonatomic) double pureDuration;
+@property (nonatomic) double reliability;
 @property (nonatomic) double speedMedian;
 @property (nonatomic) double speedStart;
 @property (nonatomic) double speedStop;
 @property (nonatomic) double timeStart;
 @property (nonatomic, copy) NSString * _Nullable type;
+@property (nonatomic, copy) NSString * _Nullable theId;
 @property (nonatomic, strong) BRPEPValue * _Nullable accuracy;
 @property (nonatomic, strong) BRPEPValue * _Nullable rangeDirect;
 @property (nonatomic, strong) BRPEPValue * _Nullable rangeLateral;
@@ -1364,6 +1434,7 @@ SWIFT_CLASS_NAMED("BRPEventT")
 @property (nonatomic) double accelerationLateralEnd;
 @property (nonatomic) double accelerationVertical;
 @property (nonatomic) double accelerationVerticalEnd;
+@property (nonatomic, copy) NSString * _Nullable accidentTrigger;
 @property (nonatomic) double duration;
 @property (nonatomic) double latitude;
 @property (nonatomic) double latitudeE;
@@ -1371,11 +1442,13 @@ SWIFT_CLASS_NAMED("BRPEventT")
 @property (nonatomic) double longitudeE;
 @property (nonatomic) double prevEventSpeed;
 @property (nonatomic) double pureDuration;
+@property (nonatomic) double reliability;
 @property (nonatomic) double speedMedian;
 @property (nonatomic) double speedStart;
 @property (nonatomic) double speedStop;
 @property (nonatomic) double timeStart;
 @property (nonatomic, copy) NSString * _Nullable type;
+@property (nonatomic, copy) NSString * _Nullable theId;
 @property (nonatomic, strong) BRPEPValue * _Nullable accuracy;
 @property (nonatomic, strong) BRPEPValue * _Nullable rangeDirect;
 @property (nonatomic, strong) BRPEPValue * _Nullable rangeLateral;
@@ -1619,6 +1692,61 @@ SWIFT_CLASS_NAMED("BRPshedulerItem")
 @end
 
 
+SWIFT_CLASS_NAMED("BrawBufferPoint")
+@interface BrawBufferPoint : NSManagedObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+- (nonnull instancetype)initWithContext:(NSManagedObjectContext * _Nonnull)context SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface BrawBufferPoint (SWIFT_EXTENSION(RaxelPulse))
+@property (nonatomic) double accX;
+@property (nonatomic) double accY;
+@property (nonatomic) double accZ;
+@property (nonatomic) BOOL before;
+@property (nonatomic) double gpsspeed;
+@property (nonatomic) double gyroX;
+@property (nonatomic) double gyroY;
+@property (nonatomic) double gyroZ;
+@property (nonatomic) double time;
+@property (nonatomic, copy) NSString * _Nullable uuid;
+@property (nonatomic) int64_t index;
+@end
+
+
+SWIFT_CLASS_NAMED("BufferUUID")
+@interface BufferUUID : NSManagedObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+- (nonnull instancetype)initWithContext:(NSManagedObjectContext * _Nonnull)context SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface BufferUUID (SWIFT_EXTENSION(RaxelPulse))
+@property (nonatomic, copy) NSString * _Nullable uuid;
+@property (nonatomic) int64_t time;
+@end
+
+
+SWIFT_CLASS_NAMED("Heartbeat")
+@interface Heartbeat : NSManagedObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+- (nonnull instancetype)initWithContext:(NSManagedObjectContext * _Nonnull)context SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSData;
+
+@interface Heartbeat (SWIFT_EXTENSION(RaxelPulse))
+@property (nonatomic, copy) NSData * _Nullable body;
+@property (nonatomic) int64_t timestamp;
+@end
+
+
 
 
 SWIFT_CLASS_NAMED("NetworkMonitor") SWIFT_AVAILABILITY(ios,introduced=12.0)
@@ -1752,6 +1880,7 @@ SWIFT_CLASS_NAMED("RPLastKnownPoints")
 @class RPRealTimeConfig;
 @class RPRTLPoint;
 @class RPTrackProcessed;
+@class NSMutableDictionary;
 
 SWIFT_CLASS_NAMED("RPLastKnownPointsHelper")
 @interface RPLastKnownPointsHelper : NSObject
@@ -1760,7 +1889,7 @@ SWIFT_CLASS_NAMED("RPLastKnownPointsHelper")
 - (void)getLKPToTrackWithStartDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(NSArray<RPLKPoint *> * _Nonnull))callResult;
 - (void)clearLKPToTrackWithStartDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(void))callResult;
 - (void)addPointsWithValue:(NSArray<NSDictionary<NSString *, id> *> * _Nonnull)value startDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(void))callResult;
-- (void)removePointsWithStartDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(void))callResult;
+- (void)removePointsWithStartDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(NSInteger))callResult;
 - (void)getPointsWithStartDate:(NSDate * _Nonnull)startDate callResult:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nonnull))callResult;
 - (void)addRPELMDevicesWithValue:(NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull)value;
 - (void)getRPELMDevicesWithCallResult:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull))callResult;
@@ -1789,6 +1918,13 @@ SWIFT_CLASS_NAMED("RPLastKnownPointsHelper")
 - (NSArray<RPLKPoint *> * _Nonnull)getLKPoints SWIFT_WARN_UNUSED_RESULT;
 - (void)addToBRPOTagWithName:(NSString * _Nullable)name source:(NSString * _Nullable)source isRemove:(BOOL)isRemove isGet:(BOOL)isGet callback:(RPAPIITagCallback _Nonnull)callback;
 - (void)setup;
+- (void)addBufferWithValue:(NSDictionary<NSString *, id> * _Nonnull)value;
+- (void)getUUIDBuffersWithCallResult:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull))callResult;
+- (void)getBuffersWithUuid:(NSString * _Nonnull)uuid timeStart:(int64_t)timeStart callResult:(void (^ _Nonnull)(NSString * _Nonnull, NSString * _Nonnull, NSString * _Nonnull))callResult;
+- (void)cleanBuffersWithUuid:(NSString * _Nonnull)uuid;
+- (void)addHeartbeatWithValue:(NSData * _Nonnull)value callback:(void (^ _Nonnull)(BOOL))callback;
+- (void)getHeartbeatsWithCallResult:(void (^ _Nonnull)(NSArray<NSMutableDictionary *> * _Nonnull))callResult;
+- (void)removeHeartbeatWithTimestamp:(NSNumber * _Nonnull)timestamp;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1864,7 +2000,6 @@ SWIFT_CLASS_NAMED("RPRealTimeConfig")
 @end
 
 @class UIColor;
-@class NSMutableDictionary;
 
 SWIFT_CLASS_NAMED("RPSettings")
 @interface RPSettings : NSObject
@@ -1972,7 +2107,6 @@ SWIFT_CLASS("_TtC10RaxelPulse9WebSocket")
 - (nonnull instancetype)init;
 @end
 
-@class NSData;
 
 @interface WebSocket (SWIFT_EXTENSION(RaxelPulse))
 /// Transmits message to the server over the WebSocket connection.

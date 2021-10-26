@@ -20,6 +20,8 @@
 #define RPURLConfigMultipartServerURL ajn2jb3s
 #define RPURLConfigStatisticsServerURL adfadfas231b
 #define RPURLUserTelematics adffffadfas231b
+#define RPURLAccident ororororor
+#define RPURLBufferIncomingServerURL djsfsk
 
 
 #endif
@@ -32,6 +34,8 @@ FOUNDATION_EXPORT NSString *const RPURLConfigIncomingServerURLheartbeats;
 FOUNDATION_EXPORT NSString *const RPURLConfigLogsServerURL;
 FOUNDATION_EXPORT NSString *const RPURLConfigStatisticsServerURL;
 FOUNDATION_EXPORT NSString *const RPURLConfigRealTimeLocationServerURL;
+FOUNDATION_EXPORT NSString *const RPURLAccident;
+FOUNDATION_EXPORT NSString *const RPURLBufferIncomingServerURL;
 
 
 @interface RPURLConfig : NSObject {

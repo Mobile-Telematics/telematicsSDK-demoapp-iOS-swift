@@ -38,7 +38,10 @@ NS_ASSUME_NONNULL_BEGIN
                             course:(double)course
                             gyro_x:(double)gyro_x
                             gyro_y:(double)gyro_y
-                            gyro_z:(double)gyro_z;
+                            gyro_z:(double)gyro_z
+                         timeStart:(NSInteger) timeStart;
+
+- (void)clearSensorDataOnStart;
 
 @end
 
