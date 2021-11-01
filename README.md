@@ -4,6 +4,8 @@ TelematicsSDK DemoApp Swift is created by DATA MOTION PTE. LTD. and allows you t
 
 TelematicsSDK DemoApp Swift is an app for iOS that demostrate using our TelematicsSDK library for tracking anywhere withu mobile device. The app will track the person's driving behavior such as speeding, turning, braking and several other things.
 
+[![Watch the video](https://github.com/Mobile-Telematics/telematicsSDK-demoapp-iOS-swift/blob/master/iOS%20Telematics%20SDK.png)](https://youtu.be/8WcVQ4_fGtE)
+
 ## iOS Installation
 To run the demo app:
 
