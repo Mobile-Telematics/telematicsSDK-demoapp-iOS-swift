@@ -44,7 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RPSpeedLimitDelegate, RPT
     }
 
     func onLocationChanged(_ location: CLLocation!) {
-        NSLog("location = %@", location)
+        if let location = location {
+            print("location = %@", location)
+        }
     }
     
     func showNotification(title: String, body: String) {
@@ -64,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RPSpeedLimitDelegate, RPT
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        RPEntry.initialize(withRequestingPermissions: false)
         let appName = "\"Swift Demo App\""
         let pages = [
             PageHelper.createPage(

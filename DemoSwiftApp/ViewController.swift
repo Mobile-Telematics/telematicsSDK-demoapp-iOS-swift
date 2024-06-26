@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     
     @objc func observePermissions() {
         DispatchQueue.main.async {
-            let isActive = RPTracker.instance()?.isActive ?? false
+            let isActive = RPTracker.instance().isActive
             self.stateLabel.text = "Tracking = \(isActive)"
             let permissions = RPPermissionsWizard.isAllRequiredPermissionsGranted()
             self.permissionLabel.text = "All Permission Granted = \(permissions)"
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
     
     @objc func changedActivity() {
         DispatchQueue.main.async {
-            let isActive = RPTracker.instance()?.isActive ?? false
+            let isActive = RPTracker.instance().isActive
             self.stateLabel.text = "Tracking = \(isActive)"
         }
     }
