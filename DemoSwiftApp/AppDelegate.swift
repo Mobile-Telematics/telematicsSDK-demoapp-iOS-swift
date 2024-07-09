@@ -157,6 +157,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RPSpeedLimitDelegate, RPT
         RPEntry.applicationDidEnterBackground(application)
     }
     
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        RPEntry.applicationWillEnterForeground(application)
+    }
+    
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
         RPEntry.applicationDidReceiveMemoryWarning(application)
     }
