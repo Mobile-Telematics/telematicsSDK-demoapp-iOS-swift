@@ -1,16 +1,16 @@
 PODS:
-  - RaxelPulse (6.0.4)
+  - RaxelPulse (6.0.5)
 
 DEPENDENCIES:
-  - RaxelPulse (= 6.0.4)
+  - RaxelPulse (= 6.0.5)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - RaxelPulse
 
 SPEC CHECKSUMS:
-  RaxelPulse: 9d336698d172db7fe09f8af924c4b0100a0c3cfc
+  RaxelPulse: a4a59fa48443d6d86e64bd8160943a699b51f228
 
-PODFILE CHECKSUM: eb8685ecbe78f01820545c1ca5890930ac61d65e
+PODFILE CHECKSUM: b078a21023305c9b813f15f741a228f424669a22
 
 COCOAPODS: 1.15.2

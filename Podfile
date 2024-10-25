@@ -3,7 +3,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'DemoSwiftApp' do
-  pod 'RaxelPulse', '6.0.4'
+  pod 'RaxelPulse', '6.0.5'
 end
 
 post_install do |installer|
