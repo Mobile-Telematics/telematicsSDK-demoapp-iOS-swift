@@ -92,10 +92,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RPSpeedLimitDelegate, RPT
         RPEntry.instance.accuracyAuthorizationDelegate = self
         RPEntry.instance.lowPowerModeDelegate = self
         
-        if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
-            RPEntry.instance.advertisingIdentifier = ASIdentifierManager.shared().advertisingIdentifier
-        }
-        
         RPEntry.instance.application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
