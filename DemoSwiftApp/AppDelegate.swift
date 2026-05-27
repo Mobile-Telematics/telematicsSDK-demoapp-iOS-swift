@@ -11,88 +11,13 @@ import TelematicsSDK
 import AdSupport
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, RPSpeedLimitDelegate, RPTrackingStateListenerDelegate, RPAccuracyAuthorizationDelegate, RPLowPowerModeDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var timeThreshold: TimeInterval = 5
-
-    var speedLimit: Double = 100
-
-    func speedLimitNotification(
-        _ speedLimit: Double,
-        speed: Double,
-        latitude: Double,
-        longitude: Double,
-        date: Date
-    ) {
-        self.showNotification(
-            title: "Overspeed",
-            body: String(format: "You speed is %f at lat: %f lon:%f", speed, latitude, longitude)
-        )
-    }
-
-    func trackingStateChanged(_ state: Bool) {
-        var body = "Tracking Stopped"
-        if state {
-            body = "Tracking Started"
-        }
-        self.showNotification(
-            title: "Tracking State",
-            body: body
-        )
-    }
-
-    func wrongAccuracyAuthorization() {
-        self.showNotification(
-            title: "Precise Location is off",
-            body: "Your trips may be not recorded. Please, follow to App Settings=>Location=>Precise Location"
-        )
-    }
-
-    func lowPowerMode(_ state: Bool) {
-        if (state) {
-            self.showNotification(
-                title: "Low Power Mode",
-                body: "Your trips may be not recorded. Please, follow to Settings=>Battery=>Low Power"
-            )
-        }
-    }
-    
-    func showNotification(title: String, body: String) {
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.subtitle = body
-        content.sound = UNNotificationSound.default
-
-        // show this notification five seconds from now
-        let trigger = UNTimeIntervalNotificationTrigger(
-            timeInterval: 5,
-            repeats: false
-        )
-
-        // choose a random identifier
-        let request = UNNotificationRequest(
-            identifier: UUID().uuidString,
-            content: content,
-            trigger: trigger
-        )
-
-        // add our notification request
-        UNUserNotificationCenter.current().add(request)
-    }
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         RPEntry.initializeSDK()
-        
-        //VIRTUAL DEVICE TOKEN REQUIRED!
-        let token = "VIRTUAL_DEVICE_TOKEN" //REQUIRED!
-        RPEntry.instance.virtualDeviceToken = token
-        RPEntry.instance.trackingStateDelegate = self
-        RPEntry.instance.speedLimitDelegate = self
-        RPEntry.instance.accuracyAuthorizationDelegate = self
-        RPEntry.instance.lowPowerModeDelegate = self
-        
         RPEntry.instance.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
     }
     
