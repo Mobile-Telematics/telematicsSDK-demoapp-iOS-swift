@@ -8,7 +8,6 @@
 
 import UIKit
 import TelematicsSDK
-import AdSupport
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

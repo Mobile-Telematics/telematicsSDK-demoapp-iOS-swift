@@ -1,0 +1,15 @@
+{
+  "originHash" : "ef4aa2611f1e2d2764c4214d9b0914285e030f8fd8da26646017a9e6117ca775",
+  "pins" : [
+    {
+      "identity" : "telematicssdk-ios-new-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mobile-Telematics/telematicsSDK-iOS-new-SPM.git",
+      "state" : {
+        "revision" : "9aab3106e1a9313f358755e801275b7e0d717279",
+        "version" : "7.2.0"
+      }
+    }
+  ],
+  "version" : 3
+}
